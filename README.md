@@ -36,24 +36,31 @@ Loosely speaking, objects in JavaScript may be defined as an unordered collectio
 
 For Eg. If object is a student, it will have properties like name, age, address, id, etc and methods like updateAddress, updateNam, etc.
 
-Objects and properties
+Objects and properties:-
+
 A JavaScript object has properties associated with it. A property of an object can be explained as a variable that is attached to the object. Object properties are basically the same as ordinary JavaScript variables, except for the attachment to objects. The properties of an object define the characteristics of the object. You access the properties of an object with a simple dot-notation:
 
+sytax-
 objectName.propertyName
+
 Like all JavaScript variables, both the object name (which could be a normal variable) and property name are case sensitive. You can define a property by assigning it a value. For example, let’s create an object named myCar and give it properties named make, model, and year as follows:
 
-var myCar = new Object();
-myCar.make = 'Ford';
-myCar.model = 'Mustang';
-myCar.year = 1969;
+var myCar = {
+make = 'Ford',
+model = 'Mustang',
+year = 1969
+};
+
 Unassigned properties of an object are undefined (and not null).
 
 myCar.color; // undefined
-Properties of JavaScript objects can also be accessed or set using a bracket notation (for more details see property accessors). Objects are sometimes called associative arrays, since each property is associated with a string value that can be used to access it. So, for example, you could access the properties of the myCar object as follows:
+
+Properties of JavaScript objects can also be accessed or set using a bracket notation. Objects are sometimes called associative arrays, since each property is associated with a string value that can be used to access it. So, for example, you could access the properties of the myCar object as follows:
 
 myCar['make'] = 'Ford';
 myCar['model'] = 'Mustang';
 myCar['year'] = 1969;
+
 An object property name can be any valid JavaScript string, or anything that can be converted to a string, including the empty string. However, any property name that is not a valid JavaScript identifier (for example, a property name that has a space or a hyphen, or that starts with a number) can only be accessed using the square bracket notation. This notation is also very useful when property names are to be dynamically determined (when the property name is not determined until runtime). Examples are as follows:
 
 // four variables are created and assigned in a single go, 
@@ -106,32 +113,3 @@ let car1 = new Vehicle(’Fiesta’, 'Ford’);
 let car2 = new Vehicle(’Santa Fe’, 'Hyundai’)
 console.log(car1.name);    //Output: Fiesta
 console.log(car2.name);    //Output: Santa Fe
-Using the JavaScript Keyword new
-The following example also creates a new JavaScript object with four properties:
-
-Example
-
-var person = new Object();
-person.firstName = “John”;
-person.lastName = “Doe”;
-person.age = 50;
-person.eyeColor = “blue”;
-
-Using the Object.create method
-Objects can also be created using the Object.create() method. This method can be very useful, because it allows you to choose the prototype object for the object you want to create, without having to define a constructor function.
-
-// Animal properties and method encapsulation
-var Animal = {
-  type: 'Invertebrates', // Default value of properties
-  displayType: function() {  // Method which will display type of Animal
-    console.log(this.type);
-  }
-};
-// Create new animal type called animal1 
-var animal1 = Object.create(Animal);
-animal1.displayType(); // Output:Invertebrates
-// Create new animal type called Fishes
-var fish = Object.create(Animal);
-fish.type = 'Fishes';
-fish.displayType(); 
-// Output:Fishes
