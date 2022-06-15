@@ -74,42 +74,54 @@ myObj['date created']   = 'String with space';
 myObj[str]              = 'String value';
 myObj[rand]             = 'Random Number';
 myObj[obj]              = 'Object';
-myObj['']               = 'Even an empty string';console.log(myObj);
-You can also access properties by using a string value that is stored in a variable:
+myObj['']               = 'Even an empty string';
+console.log(myObj);
 
-var propertyName = 'make';
-myCar[propertyName] = 'Ford';propertyName = 'model';
-myCar[propertyName] = 'Mustang';
-You can use the bracket notation with for...in to iterate over all the enumerable properties of an object. To illustrate how this works, the following function displays the properties of the object when you pass the object and the object's name as arguments to the function:
-
-function showProps(obj, objName) {
-  var result = ``;
-  for (var i in obj) {
-    // obj.hasOwnProperty() is used to filter out properties from the object's prototype chain
-    if (obj.hasOwnProperty(i)) {
-      result += `${objName}.${i} = ${obj[i]}\n`;
-    }
-  }
-  return result;
-}
-So, the function call showProps(myCar, "myCar") would return the following:
-
-myCar.make = Ford
-myCar.model = Mustang
-myCar.year = 1969
 Creating Objects In JavaScript :
 Create JavaScript Object with Object Literal
 One of easiest way to create a javascript object is object literal, simply define the property and values inside curly braces as shown below
 
 let bike = {name: 'SuperSport', maker:'Ducati', engine:'937cc'};
-Create JavaScript Object with Constructor
-Constructor is nothing but a function and with help of new keyword, constructor function allows to create multiple objects of same flavor as shown below
+this is key:value pair object.
 
-function Vehicle(name, maker) {
-   this.name = name;
-   this.maker = maker;
+You can use for-in loop to iternate the object values as given below-
+syntax -
+
+for(key in object)
+{
+  console.log(objectname[keyname]);
 }
-let car1 = new Vehicle(’Fiesta’, 'Ford’);
-let car2 = new Vehicle(’Santa Fe’, 'Hyundai’)
-console.log(car1.name);    //Output: Fiesta
-console.log(car2.name);    //Output: Santa Fe
+
+so here you object is bike -
+for(i in bike)
+{
+  console.log(bike[i]);
+}
+
+there are two more concepts-
+1) copy by value
+2) copy by reference
+
+Copy by value- 
+Primitive datatypes i.e. inbuilt datatype(ex-number,boolean,string) are involved in copy by value.
+ex-
+var a=23;
+var b=a;
+a=34;
+console.log(a,b); o/p=23,34
+so this is how it copied the value of one variable to another.
+and it will create new object for it.
+
+copy by reference-
+For single objects will have multiple refernces.
+
+ex-
+var obj={
+name:"Jhon",
+age:23};
+var obj1=obj;
+console.log(obj.name); o/p=Jhon
+
+As we seen in copy by value, it is creating new object but, in this copy by reference case it will just take reference of the object obj.
+
+So, this is how we can create and access the JS object.
